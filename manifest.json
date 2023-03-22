@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "ArchiveClick",
+  "short_name": "Archiver",
+  "description": "Opens Link in archive.today",
+  "version": "0.0.1",
+  "minimum_chrome_version": "44",
+  "permissions": [
+    "contextMenus", 
+    "tabs"],
+  "icons": {
+    "16": "assets/archive.png",
+    "32": "assets/archive32.png"
+  },
+  "background": {"service_worker": "main.js"}
+}
