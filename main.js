@@ -1,6 +1,5 @@
 openInArchive = function(data){
   var url = data.linkUrl;
-  // javascript:void(open('https://archive.ph/?run=1&url=%27+encodeURIComponent(document.location)))
   chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(url)});
 };
 
