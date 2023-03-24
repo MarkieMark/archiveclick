@@ -3,6 +3,10 @@ openInArchive = function(data){
   chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(url)});
 };
 
+archiveTab = function (tab) {
+  chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(tab.url)});
+};
+
 chrome.contextMenus.removeAll();
 
 chrome.contextMenus.create({
@@ -12,3 +16,5 @@ chrome.contextMenus.create({
   });
 
 chrome.contextMenus.onClicked.addListener(openInArchive)
+
+chrome.action.onClicked.addListener(archiveTab);

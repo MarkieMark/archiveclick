@@ -14,5 +14,13 @@
     "48": "assets/archive48.png",
     "128": "assets/archive128.png"
   },
+  "action": {
+    "default_icon": {
+      "16": "assets/archive16.png",
+      "24": "assets/archive24.png",
+      "32": "assets/archive32.png"
+    },
+    "default_title": "ArchiveClick"
+  },
   "background": {"service_worker": "main.js"}
 }
