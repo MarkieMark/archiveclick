@@ -15,6 +15,6 @@ chrome.contextMenus.create({
     contexts:['link'],
   });
 
-chrome.contextMenus.onClicked.addListener(openInArchive)
+chrome.contextMenus.onClicked.addListener(openInArchive);
 
 chrome.action.onClicked.addListener(archiveTab);
