@@ -1,10 +1,16 @@
 openInArchive = function(data){
   var url = data.linkUrl;
-  chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(url)});
+  chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(url), active: false});
 };
 
 archiveTab = function (tab) {
-  chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(tab.url)});
+  chrome.storage.sync.get({ sameTab: true }).then((items) => {
+    if (items.sameTab == true) {
+      chrome.tabs.update({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(tab.url)});
+    } else {
+      chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(tab.url), active: false});
+    }
+  });
 };
 
 chrome.contextMenus.removeAll();
