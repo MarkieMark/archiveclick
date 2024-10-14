@@ -1,20 +1,16 @@
 {
+
   "manifest_version": 3,
   "name": "ArchiveClick",
-  "short_name": "Archiver",
-  "description": "Opens Link in archive.today",
   "version": "0.0.5",
-  "minimum_chrome_version": "88",
-  "permissions": [
-    "contextMenus",
-    "activeTab",
-    "storage"],
+
+  "description": "icon click replaces current tab (default; optional)",
+
   "icons": {
-    "16": "assets/archive16.png",
-    "32": "assets/archive32.png",
     "48": "assets/archive48.png",
-    "128": "assets/archive128.png"
+    "96": "assets/archive96.png"
   },
+  
   "action": {
     "default_icon": {
       "16": "assets/archive16.png",
@@ -27,5 +23,23 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "background": {"service_worker": "main.js"}
+
+  "background": {
+      "scripts": [
+          "main.js"
+      ]
+  },
+
+  "permissions": [
+      "activeTab",
+      "contextMenus",
+      "storage"
+  ],
+  
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{a4632b0e-9b84-4e4b-b9e0-4841306d36ac}",
+      "strict_min_version": "109.0"
+    }
+  }
 }

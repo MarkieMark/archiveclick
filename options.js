@@ -2,7 +2,7 @@
 const saveOptions = () => {
   const sameTab = document.getElementById('same-tab').checked;
 
-  chrome.storage.sync.set(
+  browser.storage.sync.set(
     { sameTab: sameTab },
     () => {
       // Update status to let user know options were saved.
@@ -16,9 +16,9 @@ const saveOptions = () => {
 };
 
 // Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
+// stored in browser.storage.
 const restoreOptions = () => {
-  chrome.storage.sync.get(
+  browser.storage.sync.get(
     { sameTab: true },
     (items) => {
       console.log('options items:');
@@ -29,7 +29,6 @@ const restoreOptions = () => {
 };
 
 const closeOptions = () => {
-  console.log('closing');
   window.close();
 };
 
