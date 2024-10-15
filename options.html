@@ -6,12 +6,24 @@
   <body>
     <label for="same-tab">
       <input type="checkbox" id="same-tab" />
-      <span >(toolbar) click replaces current tab</span>
+      <span>Replace current tab upon (toolbar) icon click (Shift-click for the inverse)</span>
     </label>
     <br />
-    <div id="status">&nbsp;</div>
+    <label for="background-new-tab">
+      <input type="checkbox" id="background-new-tab" />
+      <span>Background for newly opened tabs (Ctrl-click for the inverse)</span>
+    </label>
     <br />
-    <button id="close-button">Close</button>
+    <label for="right-click-new-tab">
+      <input type="checkbox" id="right-click-new-tab" />
+      <span>Right-click link opens new tab (Shift-click for the inverse)</span>
+    </label>
+    <br />
+    <br />
+    (Shift-Ctrl-click for inverse background/foreground as well as inverse new/current tab)
+    <br />
+    <br />
+    <div id="status">&nbsp;</div>
     <script src="options.js"></script>
   </body>
 </html>
