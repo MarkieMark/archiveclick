@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "ArchiveClick",
   "short_name": "Archiver",
-  "description": "Opens Link in archive.today",
-  "version": "0.0.5",
+  "description": "Opens Link (right-click) or current URL (icon click) in archive.today",
+  "version": "0.0.6",
   "minimum_chrome_version": "88",
   "permissions": [
     "contextMenus",

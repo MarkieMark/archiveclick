@@ -1,14 +1,28 @@
-openInArchive = function(data){
+openInArchive = function(data) {
   var url = data.linkUrl;
-  chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(url), active: false});
+  chrome.storage.sync.get({
+      sameTab: true,
+      backgroundNewTab: true,
+      rightClickNewTab: true
+    }).then((items) => {
+    if (items.rightClickNewTab == true) {
+      chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(url), active: !(items.backgroundNewTab)});
+    } else {
+      chrome.tabs.update({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(url)});
+    }
+  });
 };
 
 archiveTab = function (tab) {
-  chrome.storage.sync.get({ sameTab: true }).then((items) => {
+  chrome.storage.sync.get({
+      sameTab: true,
+      backgroundNewTab: true,
+      rightClickNewTab: true
+    }).then((items) => {
     if (items.sameTab == true) {
       chrome.tabs.update({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(tab.url)});
     } else {
-      chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(tab.url), active: false});
+      chrome.tabs.create({url: "https://archive.ph/?run=1&url=" + encodeURIComponent(tab.url), active: !(items.backgroundNewTab)});
     }
   });
 };
